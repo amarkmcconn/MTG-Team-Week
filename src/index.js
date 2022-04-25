@@ -15,8 +15,35 @@ $(document).ready(function() {
     e.preventDefault();
     GetCreatures.getCard()
       .then(function(response) {
-        let src = response.cards[10].imageUrl;
+        let output = [];
+        let i = Math.floor(Math.random() * 95);
+        do {
+          output.push(i);
+          i++;
+        }
+        while (output.length < 21);     
+        let nameSrc = response.cards;
+        output.forEach(function(element) {
+          $("ul.creature-names").append("<li>" + nameSrc[element].name + "</li>");
+        });
+        let src = response.cards[output[0]].imageUrl;
         $("#show-creature").html("<img src='" + src + "'>");
+      });
+    GetLands.getCard()
+      .then(function(response) {
+        let output = [];
+        let i = Math.floor(Math.random() * 95);
+        do {
+          output.push(i);
+          i++;
+        }
+        while (output.length < 24);     
+        let nameSrc = response.cards;
+        output.forEach(function(element) {
+          $("ul.land-names").append("<li>" + nameSrc[element].name + "</li>");
+        });
+        let src = response.cards[output[0]].imageUrl;
+        $("#show-land").html("<img src='" + src + "'>");
       });
     GetEnchantments.getCard()
       .then(function(response) {
@@ -27,11 +54,6 @@ $(document).ready(function() {
       .then(function(response) {
         let src = response.cards[5].imageUrl;
         $("#show-instant").html("<img src='" + src + "'>");    
-      });
-    GetLands.getCard()
-      .then(function(response) {
-        let src = response.cards[1].imageUrl;
-        $("#show-land").html("<img src='" + src + "'>");    
       });
     GetSorceries.getCard()
       .then(function(response) {
