@@ -7,14 +7,65 @@
   <title>MTG</title>
 </head>
 <body>
-  <div class="container">
-    <h1>Get Cards</h1>
-    <button class="btn-success" id="card-selector">Get the Card</button>
-    <div class="card-description"></div>
-    <div class="show-card-image"></div>
-    <div class="show-card-image-two"></div>
-    <div class="show-card-image-three"></div>
-    <div class="show-errors"></div>
+    <div class="container">
+      <div class="jumbotron">
+        <h1>Get Cards</h1>
+      </div>
+      <div class="card-description"></div>
+      <div class="show-card-image"></div>
+      <div class="show-errors"></div>
+      
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-body">
+              <h2 class="card-title"><span class="creature">Creature Cards</span></h2>
+              <div id="show-land">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-body">
+              <h2 class="card-title"><span class="land">Land Cards</span></h2>
+              <div id="show-land">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-body">
+              <h2 class="card-title"><span class="instant">Instant Spell Cards</span></h2>
+              <div id="show-instant">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-body">
+              <h2 class="card-title"><span class="sorcery">Sorcery Spell Cards</span></h2>
+              <div id="show-sorcery">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-body">
+              <h2 class="card-title"><span class="clickable4">Enchantment Spell Cards</span></h2>
+              <div id="show-enchantment">
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="btn-success" id="card-selector">Get some Card</button>
+      </div>
+    </div>
   </div>
 </body>
 </html>
