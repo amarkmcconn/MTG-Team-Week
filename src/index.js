@@ -47,17 +47,50 @@ $(document).ready(function() {
       });
     GetEnchantments.getCard()
       .then(function(response) {
-        let src = response.cards[10].imageUrl;
+        let output = [];
+        let i = Math.floor(Math.random() * 95);
+        do {
+          output.push(i);
+          i++;
+        }
+        while (output.length < 5);     
+        let nameSrc = response.cards;
+        output.forEach(function(element) {
+          $("ul.enchantments-names").append("<li>" + nameSrc[element].name + "</li>");
+        });
+        let src = response.cards[output[0]].imageUrl;
         $("#show-enchantment").html("<img src='" + src + "'>");
       });
     GetInstants.getCard()
       .then(function(response) {
-        let src = response.cards[5].imageUrl;
+        let output = [];
+        let i = Math.floor(Math.random() * 95);
+        do {
+          output.push(i);
+          i++;
+        }
+        while (output.length < 5);     
+        let nameSrc = response.cards;
+        output.forEach(function(element) {
+          $("ul.instants-names").append("<li>" + nameSrc[element].name + "</li>");
+        });
+        let src = response.cards[output[0]].imageUrl;
         $("#show-instant").html("<img src='" + src + "'>");    
       });
     GetSorceries.getCard()
       .then(function(response) {
-        let src = response.cards[10].imageUrl;
+        let output = [];
+        let i = Math.floor(Math.random() * 95);
+        do {
+          output.push(i);
+          i++;
+        }
+        while (output.length < 5);     
+        let nameSrc = response.cards;
+        output.forEach(function(element) {
+          $("ul.sorcery-names").append("<li>" + nameSrc[element].name + "</li>");
+        });
+        let src = response.cards[output[0]].imageUrl;
         $("#show-sorcery").html("<img src='" + src + "'>");    
       });  
   });
