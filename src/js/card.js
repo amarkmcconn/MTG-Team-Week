@@ -1,6 +1,6 @@
 export default class GetCard {  
-  static getCard(card) {
-    let pageNum = Math.floor(Math.random() * 10)
+  static getCard() {
+    let pageNum = Math.floor(Math.random() * 300);
     return fetch(`https://api.magicthegathering.io/v1/cards?page=${pageNum}`)
       .then(function(response) {
         if (!response.ok) {
@@ -10,6 +10,6 @@ export default class GetCard {
       })
       .catch(function(error) {
         return error;
-      })
+      });
   }
-} 
+}
