@@ -1,4 +1,4 @@
-export default class GetLand {  
+export default class GetLands {  
   static getCard() {
     // let pageNum = Math.floor(Math.random() * 300);
     return fetch(`https://api.magicthegathering.io/v1/cards?types=Land`)
