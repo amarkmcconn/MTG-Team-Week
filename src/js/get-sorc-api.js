@@ -1,7 +1,7 @@
-export default class GetSorceries{  
+export default class Sorcery {  
   static getSorceries() {
     // let pageNum = Math.floor(Math.random() * 300);
-    return fetch(`http://api.magicthegathering.io/v1/cards?type=sorcery`)
+    return fetch(`https://api.magicthegathering.io/v1/cards?type=Sorcery`)
       .then(function(response) {
         if (!response.ok) {
           throw Error(response.statusText);

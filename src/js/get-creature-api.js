@@ -1,7 +1,7 @@
-export default class GetCreature {  
+export default class Creature {  
   static getCreature() {
     // let pageNum = Math.floor(Math.random() * 300);
-    return fetch(`http://api.magicthegathering.io/v1/cards?type=creature`)
+    return fetch(`https://api.magicthegathering.io/v1/cards?types=Creature`)
       .then(function(response) {
         if (!response.ok) {
           throw Error(response.statusText);
