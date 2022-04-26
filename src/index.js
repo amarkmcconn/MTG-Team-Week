@@ -7,16 +7,54 @@ import $ from 'jquery';
 // import GetCreatures from './js/get-creature-api.js';
 // import GetLands from './js/get-land-api.js';
 // import GetSorceries from './js/get-sorc-api.js';
-import GetCard from './js/card.js';
+// import GetCard from './js/card.js';
+import GetPokemonCard from './js/pokemon.js';
 
+
+// function background(){
+//   let background =$('#body').style.background("url('https://images.unsplash.com/photo-1491466424936-e304919aada7?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max')");
+//   return background;
+// }
+let test = null;
 function displayErrors(error) {
-  $('.show-errors').text(`${error.message}`);
+  $('.show-errors').text(`${error}`);
 }
-
 $(document).ready(function() {
   $('#card-selector').click(function(e) {
     e.preventDefault();
-    // GetCreatures.getCard()
+      GetPokemonCard.getCard() 
+      .then(function(response) {
+        if (response instanceof Error) {
+          throw (`${response}`);
+        } 
+        
+        // else{
+        //   $('.show-errors').text(`${error}`);
+        // }
+          let src = response.data[0].images.small;
+          $(".show-card-image").html("<img src='" + src + "'>");
+        })
+        .catch(function(error) {
+          test = error;
+          console.log(test);
+          displayErrors(error);
+        });
+  });
+    // GetCard.getCard() 
+    // .then(function(response) {
+    //   if (response instanceof Error) {
+    //     throw Error(`${response}`);
+    //   }
+    //     let src = response.cards[1].imageUrl;
+    //     $(".show-card-image").html("<img src='" + src + "'>");
+    //   })
+    //   .catch(function(error) {
+    //     displayErrors(error);
+    //   });
+    // });
+  });
+    
+      // GetCreatures.getCard()
     //   .then(function(response) {
     //     let nameSrc = response.cards;
     //     let output = [];
@@ -102,20 +140,3 @@ $(document).ready(function() {
     //     $("#show-sorcery").html("<img src='" + src + "'>");    
     //   });  
 
-    GetCard.getCard() 
-      .then(function(response) {
-        // console.log(response.cards[0]);
-        if (response instanceof Error) {
-          throw Error(`API Error: ${response.message}`);
-        }
-          let src = response.cards[1].imageUrl;
-          $(".show-card-image").html("<img src='" + src + "'>");
-        })
-        .catch(function(error) {
-          // console.log(error);
-          // console.log(error.message)
-          displayErrors(error);
-        });
-      });
-  });
-  // });
