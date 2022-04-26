@@ -1,7 +1,6 @@
-export default class GetLands {  
+export default class GetPokemonCard {  
   static getCard() {
-    // let pageNum = Math.floor(Math.random() * 300);
-    return fetch(`https://api.magicthegathering.io/v1/cards?types=Land`)
+    return fetch(`https://api.pokemontcg.io/v2/cards/?${process.env.API_KEY}/`)
       .then(function(response) {
         if (!response.ok) {
           throw Error(response.status);
@@ -9,7 +8,7 @@ export default class GetLands {
         return response.json();
       })
       .catch(function(error) {
-        return Error(error);
+        return (error);
       });
   }
 }

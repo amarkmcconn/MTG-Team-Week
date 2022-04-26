@@ -1,8 +1,10 @@
 h1 {
   text-align: center;
-  /* font-size: ; */
+
 }
 
-/* .card-body {
-  display: none;
-} */
+body{
+  background-image:url('');
+  background-repeat:no-repeat;
+  background-size:cover;
+}

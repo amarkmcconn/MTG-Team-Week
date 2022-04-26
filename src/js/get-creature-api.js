@@ -9,7 +9,7 @@ export default class GetCreatures {
         return response.json();
       })
       .catch(function(error) {
-        return error;
+        return Error(error);
       });
   }
 }

@@ -15,7 +15,6 @@ import GetPokemonCard from './js/pokemon.js';
 //   let background =$('#body').style.background("url('https://images.unsplash.com/photo-1491466424936-e304919aada7?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max')");
 //   return background;
 // }
-let test = null;
 function displayErrors(error) {
   $('.show-errors').text(`${error}`);
 }
@@ -27,16 +26,10 @@ $(document).ready(function() {
         if (response instanceof Error) {
           throw (`${response}`);
         } 
-        
-        // else{
-        //   $('.show-errors').text(`${error}`);
-        // }
           let src = response.data[0].images.small;
           $(".show-card-image").html("<img src='" + src + "'>");
         })
         .catch(function(error) {
-          test = error;
-          console.log(test);
           displayErrors(error);
         });
   });

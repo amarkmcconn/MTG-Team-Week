@@ -4,12 +4,12 @@ export default class GetInstants {
     return fetch(`https://api.magicthegathering.io/v1/cards?type=Instant`)
       .then(function(response) {
         if (!response.ok) {
-          throw Error(response.statusText);
+          throw Error(response.status);
         }
         return response.json();
       })
       .catch(function(error) {
-        return error;
+        return Error(error);
       });
   }
 }
