@@ -8,26 +8,33 @@ import GetCreatures from './js/get-creature-api.js';
 import GetLands from './js/get-land-api.js';
 import GetSorceries from './js/get-sorc-api.js';
 
-
+function displayErrors(response) {
+  $('.show-errors').text(`${response}`);
+}
 
 $(document).ready(function() {
   $('#card-selector').click(function(e) {
     e.preventDefault();
     GetCreatures.getCard()
       .then(function(response) {
+        let nameSrc = response.cards;
         let output = [];
         let i = Math.floor(Math.random() * 95);
         do {
           output.push(i);
           i++;
         }
-        while (output.length < 21);     
-        let nameSrc = response.cards;
+        while (output.length < 2);     
+        
         output.forEach(function(element) {
           $("ul.creature-names").append("<li>" + nameSrc[element].name + "</li>");
         });
         let src = response.cards[output[0]].imageUrl;
         $("#show-creature").html("<img src='" + src + "'>");
+        })
+        .catch(function(response) {
+          console.log(response);
+          displayErrors(response);
       });
     GetLands.getCard()
       .then(function(response) {
@@ -37,7 +44,7 @@ $(document).ready(function() {
           output.push(i);
           i++;
         }
-        while (output.length < 24);     
+        while (output.length < 2);     
         let nameSrc = response.cards;
         output.forEach(function(element) {
           $("ul.land-names").append("<li>" + nameSrc[element].name + "</li>");
@@ -53,7 +60,7 @@ $(document).ready(function() {
           output.push(i);
           i++;
         }
-        while (output.length < 5);     
+        while (output.length < 2);     
         let nameSrc = response.cards;
         output.forEach(function(element) {
           $("ul.enchantments-names").append("<li>" + nameSrc[element].name + "</li>");
@@ -69,7 +76,7 @@ $(document).ready(function() {
           output.push(i);
           i++;
         }
-        while (output.length < 5);     
+        while (output.length < 2);     
         let nameSrc = response.cards;
         output.forEach(function(element) {
           $("ul.instants-names").append("<li>" + nameSrc[element].name + "</li>");
@@ -85,7 +92,7 @@ $(document).ready(function() {
           output.push(i);
           i++;
         }
-        while (output.length < 5);     
+        while (output.length < 2);     
         let nameSrc = response.cards;
         output.forEach(function(element) {
           $("ul.sorcery-names").append("<li>" + nameSrc[element].name + "</li>");
