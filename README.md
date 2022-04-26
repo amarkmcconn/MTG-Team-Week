@@ -1,37 +1,41 @@
-# _{Application Name}_
+# _Magic the Gathering Deck Builder_
 
-#### By _**{List of contributors}**_
+#### By _**Jake Edgar, Mark McConnell, Meron G.Tekie, Nick Benzinger**_
 
-#### _{Brief description of application}_
+#### _This web application allows a user to create a basic 60 card magic the gathering deck_
 
-## Technologies Used
+## Technologies Used 🖥️
 
-* _List all_
-* _the major technologies_
-* _you used in your project_
-* _here_
+1. HTML5+CSS3
+2. JavaScript/ES2018+
+3. jQuery
+4. Bootstrap
+5. webpack/webpack-cli/webpack dev server
+6. eslint
+7. babel transpiler
+8. MTG API https://docs.magicthegathering.io/
+9. Node
 
-## Description
+## Description 📖
+_This web application allows a user to create a basic 60 card magic the gathering deck. The components of a basic deck include 24 land cards, 21 creatures, 5 instants, 5 enchantments, and 5 sorcery cards. The web application creates a full 60 card deck with one click of a button. The card deck will change each time a user creates a new deck. 
 
-_{This is a detailed description of your application. Give as much detail as needed to explain what the application does as well as any other information you want users or other developers to have.}_
 
-## Setup/Installation Requirements
+## Setup/Installation Requirements 🖊️
 
-* _This is a great place_
-* _to list setup instructions_
-* _in a simple_
-* _easy-to-understand_
-* _format_
+* Clone this repo: https://github.com/jakeedgar/mtg-team-week
+* Enter new directory using the command 'cd mtg-team-week'
+* Install dependencies with 'npm install' in the root directory
+* To run locally use the command 'npm run start' in the root directory
+* For a production build and interact with a live server, use 'npm run build'
 
-_{Leave nothing to chance! You want it to be easy for potential users, employers and collaborators to run your app. Do I need to run a server? How should I set up my databases? Is there other code this application depends on? We recommend deleting the project from your desktop, re-cloning the project from GitHub, and writing down all the steps necessary to get the project working again.}_
+## Known Bugs 🐛
 
-## Known Bugs
-
-* _Any known issues_
-* _should go here_
+* _No Known Bugs_
 
 ## License
 
-_{Let people know what to do if they run into any issues or have questions, ideas or concerns.  Encourage them to contact you or make a contribution to the code.}_
+[GPLv3](https://www.gnu.org/licenses/gpl-3.0.en.html)
 
-Copyright (c) _date_ _author name(s)_
+_If you run into any issues or have questions, ideas or concerns;  Please email any of us - mark.programming1@gmail.com | jakeedgar1012@gmail.com | ramenimo@gmail.com | nicholasbenzinger@gmail.com, or make a contribution to the code._
+
+Copyright (c) _2022_ _Jake Edgar, Mark McConnell, Meron G.Tekie, Nick Benzinger_
