@@ -9,6 +9,7 @@ import GetLands from './js/get-land-api.js';
 import GetSorceries from './js/get-sorc-api.js';
 // import GetCard from './js/card.js';
 import GetPokemonCard from './js/pokemon.js';
+import GetTrainers from './js/trainers-api';
 
 
 // function background(){
@@ -28,8 +29,7 @@ $(document).ready(function() {
         } 
         let pokemon = response.data;
         let output = [];
-        let i = 225;
-
+        let i = Math.floor(Math.random() * 225);
         do { 
             if (pokemon[i].supertype === "Pokémon") {
             output.push(i);
@@ -37,10 +37,8 @@ $(document).ready(function() {
            }
         }
         while (output.length < 2);     
-        
         output.forEach(function(element) {
           $("ul.pokemon-names").append("<li>" + pokemon[element].name + "</li>");
-          console.log(pokemon[element].supertype);
         });
           let src = response.data[output[0]].images.small;
           $("#show-pokemon").html("<img src='" + src + "'>");
@@ -49,6 +47,35 @@ $(document).ready(function() {
         .catch(function(error) {
           displayErrors(error);
         });
+
+        GetTrainers.getCard() 
+        .then(function(response) {
+          if (response instanceof Error) {
+            throw (`${response}`);
+          } 
+          let pokemon = response.data;
+          let output = [];
+
+
+          for (let i = 0; i < 250; i++) {
+            if (pokemon[i].supertype === "Trainer") {
+              if (output.length < 25) {
+                console.log(pokemon[i]);
+                output.push(i);
+              }
+            }
+          }
+          output.forEach(function(element) {
+            $("ul.trainer-names").append("<li>" + pokemon[element].name + "</li>");
+            console.log(pokemon[element].supertype);
+          });
+            let src = response.data[output[0]].images.small;
+            $("#show-trainer").html("<img src='" + src + "'>");
+          
+          })
+          .catch(function(error) {
+            displayErrors(error);
+          });
 
       //   GetCard.getCard() 
       //   .then(function(response) {
