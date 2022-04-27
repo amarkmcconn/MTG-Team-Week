@@ -8,3 +8,12 @@ body{
   background-repeat:no-repeat;
   background-size:cover;
 }
+
+.buttons, .toggle-buttons {
+  text-align: center;
+}
+
+#pokemon-row, #mtg-row {
+  display: none;
+}
+
