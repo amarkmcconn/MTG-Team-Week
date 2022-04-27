@@ -8,7 +8,7 @@ import GetCreatures from './js/get-creature-api.js';
 import GetLands from './js/get-land-api.js';
 import GetSorceries from './js/get-sorc-api.js';
 // import GetCard from './js/card.js';
-// import GetPokemonCard from './js/pokemon.js';
+import GetPokemonCard from './js/pokemon.js';
 
 
 // function background(){
@@ -21,17 +21,34 @@ function displayErrors(error) {
 $(document).ready(function() {
   $('#card-selector').click(function(e) {
     e.preventDefault();
-      // GetPokemonCard.getCard() 
-      // .then(function(response) {
-      //   if (response instanceof Error) {
-      //     throw (`${response}`);
-      //   } 
-      //     let src = response.data[0].images.small;
-      //     $(".show-card-image").html("<img src='" + src + "'>");
-      //   })
-      //   .catch(function(error) {
-      //     displayErrors(error);
-      //   });
+      GetPokemonCard.getCard() 
+      .then(function(response) {
+        if (response instanceof Error) {
+          throw (`${response}`);
+        } 
+        let pokemon = response.data;
+        let output = [];
+        let i = 225;
+
+        do { 
+            if (pokemon[i].supertype === "Pokémon") {
+            output.push(i);
+            i++;
+           }
+        }
+        while (output.length < 2);     
+        
+        output.forEach(function(element) {
+          $("ul.pokemon-names").append("<li>" + pokemon[element].name + "</li>");
+          console.log(pokemon[element].supertype);
+        });
+          let src = response.data[output[0]].images.small;
+          $("#show-pokemon").html("<img src='" + src + "'>");
+        
+        })
+        .catch(function(error) {
+          displayErrors(error);
+        });
 
       //   GetCard.getCard() 
       //   .then(function(response) {
