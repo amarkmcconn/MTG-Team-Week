@@ -1,6 +1,8 @@
 export default class GetEnergy {  
   static getCard() {
-    return fetch(`https://api.pokemontcg.io/v2/cards?supertype=Energy`)
+    let page = 38;
+    console.log(page);
+    return fetch(`https://api.pokemontcg.io/v2/cards/?page=${page}&${process.env.API_KEY}`)
       .then(function(response) {
         if (!response.ok) {
           throw Error(response.status);
@@ -8,7 +10,7 @@ export default class GetEnergy {
         return response.json();
       })
       .catch(function(error) {
-        return Error(error);
+        return (error);
       });
   }
 }
