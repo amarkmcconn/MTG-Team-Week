@@ -123,13 +123,16 @@ $(document).ready(function() {
           $("ul.creature-names").append("<li>" + nameSrc[element].name + "</li>");
         });
         let src = response.cards[output[0]].imageUrl;
+        if (response.cards[output[0]].imageUrl === undefined) {
+          src = "https://www.debaggioherbs.com/image/no_image.jpg";
+        }
         $("#show-creature").html("<img src='" + src + "'>");
         })
           .catch(function(error) {
             displayErrors(error);
         });
         GetLands.getCard()
-      .then(function(response) {
+       .then(function(response) {
         if (response instanceof Error) {
           throw (`${response}`);
         }
@@ -145,13 +148,16 @@ $(document).ready(function() {
           $("ul.land-names").append("<li>" + nameSrc[element].name + "</li>");
         });
         let src = response.cards[output[0]].imageUrl;
+        if (response.cards[output[0]].imageUrl === undefined) {
+          src = "https://www.debaggioherbs.com/image/no_image.jpg";
+        }
         $("#show-land").html("<img src='" + src + "'>");
         })
           .catch(function(error) {
             displayErrors(error);
         });
-      GetEnchantments.getCard()
-      .then(function(response) {
+        GetEnchantments.getCard()
+       .then(function(response) {
         if (response instanceof Error) {
           throw (`${response}`);
         }
@@ -166,14 +172,18 @@ $(document).ready(function() {
         output.forEach(function(element) {
           $("ul.enchantments-names").append("<li>" + nameSrc[element].name + "</li>");
         });
+
         let src = response.cards[output[0]].imageUrl;
+        if (response.cards[output[0]].imageUrl === undefined) {
+          src = "https://www.debaggioherbs.com/image/no_image.jpg";
+        }
         $("#show-enchantment").html("<img src='" + src + "'>");
-      })
-      .catch(function(error) {
-        displayErrors(error);
-      });
-      GetInstants.getCard()
-      .then(function(response) {
+        })
+        .catch(function(error) {
+          displayErrors(error);
+        });
+        GetInstants.getCard()
+        .then(function(response) {
         if (response instanceof Error) {
           throw (`${response}`);
         }
@@ -189,13 +199,16 @@ $(document).ready(function() {
           $("ul.instants-names").append("<li>" + nameSrc[element].name + "</li>");
         });
         let src = response.cards[output[0]].imageUrl;
+        if (response.cards[output[0]].imageUrl === undefined) {
+          src = "https://www.debaggioherbs.com/image/no_image.jpg";
+        }
         $("#show-instant").html("<img src='" + src + "'>");    
-      })
-      .catch(function(error) {
-        displayErrors(error);
-      });
-      GetSorceries.getCard()
-      .then(function(response) {
+        })
+        .catch(function(error) {
+          displayErrors(error);
+        });
+        GetSorceries.getCard()
+       .then(function(response) {
         if (response instanceof Error) {
           throw (`${response}`);
         }
@@ -211,10 +224,13 @@ $(document).ready(function() {
           $("ul.sorcery-names").append("<li>" + nameSrc[element].name + "</li>");
         });
         let src = response.cards[output[0]].imageUrl;
+        if (response.cards[output[0]].imageUrl === undefined) {
+          src = "https://www.debaggioherbs.com/image/no_image.jpg";
+        }
         $("#show-sorcery").html("<img src='" + src + "'>");    
-      })
-      .catch(function(error) {
-        displayErrors(error);
+        })
+        .catch(function(error) {
+          displayErrors(error);
       });
     });
 
