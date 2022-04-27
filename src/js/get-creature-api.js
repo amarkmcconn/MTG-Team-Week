@@ -1,15 +1,14 @@
 export default class GetCreatures {  
   static getCard() {
-    // let pageNum = Math.floor(Math.random() * 300);
     return fetch(`https://api.magicthegathering.io/v1/cards?types=Creature`)
       .then(function(response) {
         if (!response.ok) {
-          throw Error(response.statusText);
+          throw Error(response.status);
         }
         return response.json();
       })
       .catch(function(error) {
-        return Error(error);
+        return (error);
       });
   }
 }

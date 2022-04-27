@@ -8,7 +8,7 @@ export default class GetCard {
         return response.json();
       })
       .catch(function(error) {
-        return Error(error);
+        return (error);
       });
   }
 }
