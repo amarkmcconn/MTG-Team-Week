@@ -9,102 +9,112 @@
 <body id="body">
     <div class="container">
       <div class="jumbotron">
-        <h1>Build your Magic Deck</h1>
+        <h1>Build your Card Deck</h1>
       </div>
       <div class="show-card-image"></div>
       <div class="show-pokemon-image"></div>
       <div class="show-errors"></div> 
       <form id="card-form">
-        <div class="row">
-          <div class="col-md-3">
-            <div class="card">
-              <div class="card-body">
-                <h2 class="card-title"><span class="creature">Creature Cards</span></h2>
-                <div id="show-creature">
+        <div id="mtg-row">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="card">
+                <div class="card-body">
+                  <h2 class="card-title"><span class="creature">Creature Cards</span></h2>
+                  <div id="show-creature">
+                  </div>
+                  <ul class="creature-names"></ul>
+                  <p class="creature-name"></p>
                 </div>
-                <ul class="creature-names"></ul>
-                <p class="creature-name"></p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="card">
+                <div class="card-body">
+                  <h2 class="card-title"><span class="land">Land Cards</span></h2>
+                  <div id="show-land">
+                  </div>
+                  <ul class="land-names"></ul>
+                </div>
+              </div>
+            </div>     
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+              <div class="card">
+                <div class="card-body">
+                  <h2 class="card-title"><span class="instant">Instant Spell Cards</span></h2>
+                  <div id="show-instant">
+                  </div>
+                  <ul class="instants-names"></ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card">
+                <div class="card-body">
+                  <h2 class="card-title"><span class="sorcery">Sorcery Spell Cards</span></h2>
+                  <div id="show-sorcery">
+                  </div>
+                  <ul class="sorcery-names"></ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card">
+                <div class="card-body">
+                  <h2 class="card-title"><span class="enchantment">Enchantment Spell Cards</span></h2>
+                  <div id="show-enchantment">
+                  </div>
+                  <ul class="enchantments-names"></ul>
+                </div>
               </div>
             </div>
           </div>
-          <div class="col-md-3">
-            <div class="card">
-              <div class="card-body">
-                <h2 class="card-title"><span class="land">Land Cards</span></h2>
-                <div id="show-land">
-                </div>
-                <ul class="land-names"></ul>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="card">
-              <div class="card-body">
-                <h2 class="card-title"><span class="pokemon">pokemon</span></h2>
-                <div id="show-pokemon">
-                </div>
-                <ul class="pokemon-names"></ul>
-                <p class="pokemon-name"></p>
-              </div>
-            </div>
-          </div>
-          
         </div>
-        <div class="row">
-          <div class="col-md-2">
-            <div class="card">
-              <div class="card-body">
-                <h2 class="card-title"><span class="instant">Instant Spell Cards</span></h2>
-                <div id="show-instant">
+          <div id="pokemon-row">
+            <div class="row">
+              <div class="col-md-4">
+                <div class="card">
+                  <div class="card-body">
+                    <h2 class="card-title"><span class="energies">Pokemon</span></h2>
+                    <div id="show-pokemon">
+                    </div>
+                    <ul class="pokemon-names"></ul>
+                  </div>
                 </div>
-                <ul class="instants-names"></ul>
+              </div>
+              <div class="col-md-4">
+                <div class="card">
+                  <div class="card-body">
+                    <h2 class="card-title"><span class="trainer">Trainer</span></h2>
+                    <div id="show-trainer">
+                    </div>
+                    <ul class="trainer-names"></ul>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="card">
+                  <div class="card-body">
+                    <h2 class="card-title"><span class="energies">Energies</span></h2>
+                    <div id="show-energy">
+                    </div>
+                    <ul class="energy-names"></ul>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-          <div class="col-md-2">
-            <div class="card">
-              <div class="card-body">
-                <h2 class="card-title"><span class="sorcery">Sorcery Spell Cards</span></h2>
-                <div id="show-sorcery">
-                </div>
-                <ul class="sorcery-names"></ul>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-2">
-            <div class="card">
-              <div class="card-body">
-                <h2 class="card-title"><span class="enchantment">Enchantment Spell Cards</span></h2>
-                <div id="show-enchantment">
-                </div>
-                <ul class="enchantments-names"></ul>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="card">
-              <div class="card-body">
-                <h2 class="card-title"><span class="trainer">trainer</span></h2>
-                <div id="show-trainer">
-                </div>
-                <ul class="trainer-names"></ul>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="card">
-              <div class="card-body">
-                <h2 class="card-title"><span class="energies">energies</span></h2>
-                <div id="show-energies">
-                </div>
-                <ul class="energy-names"></ul>
-              </div>
-            </div>
-          </div>
-          <button class="btn-dark" id="card-selector">Get A Random Deck of MTG Cards!</button>
+        <div class="buttons">
+          <button class="btn-dark" id="card-selector-mtg">Get A Random Deck of MTG Cards!</button>
           <button class="btn-dark" id="card-selector-pokemon">Get A Random Deck of Pokemon Cards!</button>
         </div>
       </form>
+        <div class="toggle-buttons">
+          <button class="btn-dark" id="toggleMtg">Toggle MTG</button>
+          <button class="btn-dark" id="togglePokemon">Toggle Pokemon</button>
+        </div>  
     </div>
 </body>
 </html>
