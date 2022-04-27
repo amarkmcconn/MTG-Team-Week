@@ -25,8 +25,8 @@ _This web application allows a user to create a basic 60 card magic the gatherin
 * Clone this repo: https://github.com/jakeedgar/mtg-team-week
 * Enter new directory using the command 'cd mtg-team-week'
 * Install dependencies with 'npm install' in the root directory
-* To run locally use the command 'npm run start' in the root directory
-* For a production build and interact with a live server, use 'npm run build'
+* To run locally & interact with a live server use the command 'npm run start' in the root directory
+* For a production build, use 'npm run build'
 
 ## Known Bugs 🐛
 
