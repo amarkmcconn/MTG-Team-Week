@@ -29,8 +29,6 @@ body{
   display: none;
 }
 
-
-
 .creature-names, .land-names, .instants-names, .enchantments-names, .sorcery-names {
   font-family: Georgia, 'Times New Roman', Times, serif;
 }
