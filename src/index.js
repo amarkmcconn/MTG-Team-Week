@@ -7,16 +7,11 @@ import GetInstants from './js/get-instant-api.js';
 import GetCreatures from './js/get-creature-api.js';
 import GetLands from './js/get-land-api.js';
 import GetSorceries from './js/get-sorc-api.js';
-// import GetCard from './js/card.js';
 import GetPokemonCard from './js/pokemon.js';
 import GetTrainers from './js/trainers-api.js';
 import GetEnergy from './js/energies-api.js';
 
 
-// function background(){
-//   let background =$('#body').style.background("url('https://images.unsplash.com/photo-1491466424936-e304919aada7?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max')");
-//   return background;
-// }
 function displayErrors(error) {
   $('.show-errors').text(`${error}`);
 }
@@ -25,7 +20,9 @@ $(document).ready(function() {
     e.preventDefault();
     $('#mtg-row').hide();
     $('#pokemon-row').show();
-      GetPokemonCard.getCard() 
+    $('#card-selector-pokemon').hide();
+    $('#toggle-pokemon').show();
+    GetPokemonCard.getCard() 
       .then(function(response) {
         if (response instanceof Error) {
           throw (`${response}`);
@@ -34,78 +31,78 @@ $(document).ready(function() {
         let output = [];
         let i = Math.floor(Math.random() * 225);
         do { 
-            if (pokemon[i].supertype === "Pokémon") {
+          if (pokemon[i].supertype === "Pokémon") {
             output.push(i);
             i++;
-           }
+          }
         }
         while (output.length < 21);     
         output.forEach(function(element) {
           $("ul.pokemon-names").append("<li>" + pokemon[element].name + "</li>");
         });
-          let src = response.data[output[0]].images.small;
-          $("#show-pokemon").html("<img src='" + src + "'>");
-        
-        })
-        .catch(function(error) {
-          displayErrors(error);
-        });
+        let src = response.data[output[0]].images.small;
+        $("#show-pokemon").html("<img src='" + src + "'>");
+      })
+      .catch(function(error) {
+        displayErrors(error);
+      });
 
-        GetTrainers.getCard() 
-        .then(function(response) {
-          if (response instanceof Error) {
-            throw (`${response}`);
-          } 
-          let pokemon = response.data;
-          let output = [];
-          for (let i = 0; i < 250; i++) {
-            if (pokemon[i].supertype === "Trainer") {
-              if (output.length < 25) {
-                output.push(i);
-              }
+    GetTrainers.getCard() 
+      .then(function(response) {
+        if (response instanceof Error) {
+          throw (`${response}`);
+        } 
+        let pokemon = response.data;
+        let output = [];
+        for (let i = 0; i < 250; i++) {
+          if (pokemon[i].supertype === "Trainer") {
+            if (output.length < 25) {
+              output.push(i);
             }
           }
-          output.forEach(function(element) {
-            $("ul.trainer-names").append("<li>" + pokemon[element].name + "</li>");
-          });
-            let src = response.data[output[0]].images.small;
-            $("#show-trainer").html("<img src='" + src + "'>");
-          })
-          .catch(function(error) {
-            displayErrors(error);
-          });
+        }
+        output.forEach(function(element) {
+          $("ul.trainer-names").append("<li>" + pokemon[element].name + "</li>");
+        });
+        let src = response.data[output[0]].images.small;
+        $("#show-trainer").html("<img src='" + src + "'>");
+      })
+      .catch(function(error) {
+        displayErrors(error);
+      });
 
-          GetEnergy.getCard() 
-          .then(function(response) {
-            if (response instanceof Error) {
-              throw (`${response}`);
-            } 
-            let pokemon = response.data;
-            let output = [];
-            for (let i = 0; i < 250; i++) {
-              if (pokemon[i].supertype === "Energy") {
-                if (output.length < 15) {
-                  output.push(i);
-                }
-              }
+    GetEnergy.getCard() 
+      .then(function(response) {
+        if (response instanceof Error) {
+          throw (`${response}`);
+        } 
+        let pokemon = response.data;
+        let output = [];
+        for (let i = 0; i < 250; i++) {
+          if (pokemon[i].supertype === "Energy") {
+            if (output.length < 15) {
+              output.push(i);
             }
-            output.forEach(function(element) {
-              $("ul.energy-names").append("<li>" + pokemon[element].name + "</li>");
-              console.log(pokemon[element].supertype);
-            });
-              let src = response.data[output[0]].images.small;
-              $("#show-energy").html("<img src='" + src + "'>");
-            })
-            .catch(function(error) {
-              displayErrors(error);
-            });
-    });
+          }
+        }
+        output.forEach(function(element) {
+          $("ul.energy-names").append("<li>" + pokemon[element].name + "</li>");
+          console.log(pokemon[element].supertype);
+        });
+        let src = response.data[output[0]].images.small;
+        $("#show-energy").html("<img src='" + src + "'>");
+      })
+      .catch(function(error) {
+        displayErrors(error);
+      });
+  });
 
-    $('#card-selector-mtg').click(function(e) {
-      e.preventDefault();
-      $('#pokemon-row').hide();
-      $('#mtg-row').show();
-      GetCreatures.getCard()
+  $('#card-selector-mtg').click(function(e) {
+    e.preventDefault();
+    $('#pokemon-row').hide();
+    $('#mtg-row').show();
+    $('#card-selector-mtg').hide();
+    GetCreatures.getCard()
       .then(function(response) {
         if (response instanceof Error) {
           throw (`${response}`);
@@ -127,12 +124,12 @@ $(document).ready(function() {
           src = "https://www.debaggioherbs.com/image/no_image.jpg";
         }
         $("#show-creature").html("<img src='" + src + "'>");
-        })
-          .catch(function(error) {
-            displayErrors(error);
-        });
-        GetLands.getCard()
-       .then(function(response) {
+      })
+      .catch(function(error) {
+        displayErrors(error);
+      });
+    GetLands.getCard()
+      .then(function(response) {
         if (response instanceof Error) {
           throw (`${response}`);
         }
@@ -152,25 +149,28 @@ $(document).ready(function() {
           src = "https://www.debaggioherbs.com/image/no_image.jpg";
         }
         $("#show-land").html("<img src='" + src + "'>");
-        })
-          .catch(function(error) {
-            displayErrors(error);
-        });
-        GetEnchantments.getCard()
-       .then(function(response) {
+      })
+      .catch(function(error) {
+        displayErrors(error);
+      });
+    GetEnchantments.getCard()
+      .then(function(response) {
         if (response instanceof Error) {
           throw (`${response}`);
         }
+        let card = response.cards;
         let output = [];
         let i = Math.floor(Math.random() * 95);
         do {
-          output.push(i);
+          if (card[i].imageUrl !== undefined){
+            output.push(i);
+          }
           i++;
         }
         while (output.length < 2);     
-        let nameSrc = response.cards;
+
         output.forEach(function(element) {
-          $("ul.enchantments-names").append("<li>" + nameSrc[element].name + "</li>");
+          $("ul.enchantments-names").append("<li>" + card[element].name + "</li>");
         });
 
         let src = response.cards[output[0]].imageUrl;
@@ -178,12 +178,12 @@ $(document).ready(function() {
           src = "https://www.debaggioherbs.com/image/no_image.jpg";
         }
         $("#show-enchantment").html("<img src='" + src + "'>");
-        })
-        .catch(function(error) {
-          displayErrors(error);
-        });
-        GetInstants.getCard()
-        .then(function(response) {
+      })
+      .catch(function(error) {
+        displayErrors(error);
+      });
+    GetInstants.getCard()
+      .then(function(response) {
         if (response instanceof Error) {
           throw (`${response}`);
         }
@@ -203,12 +203,12 @@ $(document).ready(function() {
           src = "https://www.debaggioherbs.com/image/no_image.jpg";
         }
         $("#show-instant").html("<img src='" + src + "'>");    
-        })
-        .catch(function(error) {
-          displayErrors(error);
-        });
-        GetSorceries.getCard()
-       .then(function(response) {
+      })
+      .catch(function(error) {
+        displayErrors(error);
+      });
+    GetSorceries.getCard()
+      .then(function(response) {
         if (response instanceof Error) {
           throw (`${response}`);
         }
@@ -228,18 +228,26 @@ $(document).ready(function() {
           src = "https://www.debaggioherbs.com/image/no_image.jpg";
         }
         $("#show-sorcery").html("<img src='" + src + "'>");    
-        })
-        .catch(function(error) {
-          displayErrors(error);
+      })
+      .catch(function(error) {
+        displayErrors(error);
       });
-    });
-
-    $('#toggleMtg').click(function(e) {
-      e.preventDefault();
-      $('#mtg-row').toggle();
-    });
-    $('#togglePokemon').click(function(e) {
-      e.preventDefault();
-      $('#pokemon-row').toggle();
-    });
   });
+
+  $('#toggle-mtg').click(function(e) {
+    e.preventDefault();
+    $('#toggle-mtg').hide();
+    $('#toggle-pokemon').show();
+    $('#pokemon-row').show();
+    $('#mtg-row').hide();
+    // $('#mtg-row').toggle();
+  });
+  $('#toggle-pokemon').click(function(e) {
+    e.preventDefault();
+    $('#toggle-mtg').show();
+    $('#toggle-pokemon').hide();
+    $('#mtg-row').show();
+    $('#pokemon-row').hide();
+    // $('#pokemon-row').toggle();
+  });
+});
