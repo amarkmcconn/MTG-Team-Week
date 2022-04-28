@@ -11,10 +11,10 @@ import GetPokemonCard from './js/pokemon.js';
 import GetTrainers from './js/trainers-api.js';
 import GetEnergy from './js/energies-api.js';
 
-
 function displayErrors(error) {
   $('.show-errors').text(`${error}`);
 }
+
 $(document).ready(function() {
   $('#card-selector-pokemon').click(function(e) {
     e.preventDefault();
@@ -26,7 +26,7 @@ $(document).ready(function() {
       .then(function(response) {
         if (response instanceof Error) {
           throw (`${response}`);
-        } 
+        }
         let pokemon = response.data;
         let output = [];
         let i = Math.floor(Math.random() * 225);
@@ -107,20 +107,21 @@ $(document).ready(function() {
         if (response instanceof Error) {
           throw (`${response}`);
         }
-        let nameSrc = response.cards;
+        let card = response.cards;
         let output = [];
         let i = Math.floor(Math.random() * 95);
         do {
-          output.push(i);
+          if (card[i].imageUrl !== undefined){
+            output.push(i);
+          }
           i++;
         }
-        while (output.length < 2);     
-        
+        while (output.length < 21);
         output.forEach(function(element) {
-          $("ul.creature-names").append("<li>" + nameSrc[element].name + "</li>");
+          $("ul.creature-names").append("<li>" + card[element].name + "</li>");
         });
         let src = response.cards[output[0]].imageUrl;
-        if (response.cards[output[0]].imageUrl === undefined) {
+        if (src === undefined) {
           src = "https://www.debaggioherbs.com/image/no_image.jpg";
         }
         $("#show-creature").html("<img src='" + src + "'>");
@@ -133,19 +134,21 @@ $(document).ready(function() {
         if (response instanceof Error) {
           throw (`${response}`);
         }
+        let card = response.cards;
         let output = [];
         let i = Math.floor(Math.random() * 95);
         do {
-          output.push(i);
+          if (card[i].imageUrl !== undefined){
+            output.push(i);
+          }
           i++;
         }
-        while (output.length < 2);     
-        let nameSrc = response.cards;
+        while (output.length < 24);     
         output.forEach(function(element) {
-          $("ul.land-names").append("<li>" + nameSrc[element].name + "</li>");
+          $("ul.land-names").append("<li>" + card[element].name + "</li>");
         });
         let src = response.cards[output[0]].imageUrl;
-        if (response.cards[output[0]].imageUrl === undefined) {
+        if (src === undefined) {
           src = "https://www.debaggioherbs.com/image/no_image.jpg";
         }
         $("#show-land").html("<img src='" + src + "'>");
@@ -167,14 +170,13 @@ $(document).ready(function() {
           }
           i++;
         }
-        while (output.length < 2);     
-
+        while (output.length < 5);     
         output.forEach(function(element) {
           $("ul.enchantments-names").append("<li>" + card[element].name + "</li>");
         });
 
         let src = response.cards[output[0]].imageUrl;
-        if (response.cards[output[0]].imageUrl === undefined) {
+        if (src === undefined) {
           src = "https://www.debaggioherbs.com/image/no_image.jpg";
         }
         $("#show-enchantment").html("<img src='" + src + "'>");
@@ -187,19 +189,21 @@ $(document).ready(function() {
         if (response instanceof Error) {
           throw (`${response}`);
         }
+        let card = response.cards;
         let output = [];
         let i = Math.floor(Math.random() * 95);
         do {
-          output.push(i);
+          if (card[i].imageUrl !== undefined){
+            output.push(i);
+          }
           i++;
         }
-        while (output.length < 2);     
-        let nameSrc = response.cards;
+        while (output.length < 5);     
         output.forEach(function(element) {
-          $("ul.instants-names").append("<li>" + nameSrc[element].name + "</li>");
+          $("ul.instants-names").append("<li>" + card[element].name + "</li>");
         });
         let src = response.cards[output[0]].imageUrl;
-        if (response.cards[output[0]].imageUrl === undefined) {
+        if (src === undefined) {
           src = "https://www.debaggioherbs.com/image/no_image.jpg";
         }
         $("#show-instant").html("<img src='" + src + "'>");    
@@ -212,19 +216,21 @@ $(document).ready(function() {
         if (response instanceof Error) {
           throw (`${response}`);
         }
+        let card = response.cards;
         let output = [];
         let i = Math.floor(Math.random() * 95);
         do {
-          output.push(i);
+          if (card[i].imageUrl !== undefined){
+            output.push(i);
+          }
           i++;
         }
-        while (output.length < 2);     
-        let nameSrc = response.cards;
+        while (output.length < 5);     
         output.forEach(function(element) {
-          $("ul.sorcery-names").append("<li>" + nameSrc[element].name + "</li>");
+          $("ul.sorcery-names").append("<li>" + card[element].name + "</li>");
         });
         let src = response.cards[output[0]].imageUrl;
-        if (response.cards[output[0]].imageUrl === undefined) {
+        if (src === undefined) {
           src = "https://www.debaggioherbs.com/image/no_image.jpg";
         }
         $("#show-sorcery").html("<img src='" + src + "'>");    
@@ -240,7 +246,6 @@ $(document).ready(function() {
     $('#toggle-pokemon').show();
     $('#pokemon-row').show();
     $('#mtg-row').hide();
-    // $('#mtg-row').toggle();
   });
   $('#toggle-pokemon').click(function(e) {
     e.preventDefault();
@@ -248,6 +253,5 @@ $(document).ready(function() {
     $('#toggle-pokemon').hide();
     $('#mtg-row').show();
     $('#pokemon-row').hide();
-    // $('#pokemon-row').toggle();
   });
 });
