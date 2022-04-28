@@ -1,19 +1,40 @@
 h1 {
   text-align: center;
-
 }
 
-body{
-  background-image:url('');
-  background-repeat:no-repeat;
-  background-size:cover;
+.show-errors {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  color: rgb(187, 32, 32);
+  font-size: xx-large;
+}
+body{ 
+  background-color: rgb(70, 70, 70);
+}
+
+.card-body {
+  padding: 10px;
+  border: 2px solid #000;
+  background-color: rgb(162, 162, 162);
 }
 
 .buttons, .toggle-buttons {
   text-align: center;
 }
 
+#toggle-mtg, #toggle-pokemon {
+  display: none;
+}
+
 #pokemon-row, #mtg-row {
   display: none;
 }
+
+
+
+.creature-names, .land-names, .instants-names, .enchantments-names, .sorcery-names {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+
+
 
