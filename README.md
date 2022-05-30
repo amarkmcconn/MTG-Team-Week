@@ -35,6 +35,9 @@ This web application allows a user to create a basic 60-card Magic the Gathering
 * To run locally & interact with a live server use the command 'npm run start' in the root directory
 * For a production build, use 'npm run build'
 
+![Hompage1](https://user-images.githubusercontent.com/101524368/170917833-556e962a-182c-4ab4-95a5-9c06c9897a34.jpg)
+![hompage2](https://user-images.githubusercontent.com/101524368/170917840-3317647f-3fe1-41a4-bb7d-89c62d1fe776.jpg)
+
 ## Known Bugs 🐛
 
 * _No Known Bugs_
